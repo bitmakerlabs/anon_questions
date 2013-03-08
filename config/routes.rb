@@ -1,4 +1,8 @@
 AnonQuestions::Application.routes.draw do
+  get "questions/index"
+
+  get "questions/vote_up"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,6 +1,11 @@
 class QuestionsController < ApplicationController
   def index
     @questions = Question.order(:votes).reverse
+
+    respond_to do |format|
+      format.json { render :json => @questions }
+      format.html
+    end
   end
 
   def vote_up
@@ -12,7 +17,9 @@ class QuestionsController < ApplicationController
 
   def create
     params.inspect
-    question = Question.create! params[:question]
+    question = Question.new params[:question]
+    question.votes = 0
+    question.save!
     respond_to do |format|
       format.json { render :json => question }
     end

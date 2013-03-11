@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.all.order(:votes)
+    @questions = Question.order(:votes)
   end
 
   def vote_up

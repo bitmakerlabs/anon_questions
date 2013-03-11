@@ -1,5 +1,7 @@
 AnonQuestions::Application.routes.draw do
-  resources :questions
+  resources :questions do
+    post 'vote_up'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

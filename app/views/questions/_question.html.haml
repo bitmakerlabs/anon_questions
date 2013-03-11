@@ -1,0 +1,9 @@
+%tr
+  %td
+    .upvote
+      .button
+        = link_to 'upvote', question_vote_up_path(question)
+      .count
+        = question.votes
+  %td
+    = question.question

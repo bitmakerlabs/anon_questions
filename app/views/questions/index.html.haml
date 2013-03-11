@@ -1,1 +1,10 @@
-%h1 doop doop doop
+%h1 Current Questions
+
+
+%table.table.table-striped
+  - for question in @questions
+    = render :partial => 'question', :locals => { :question => question }
+
+= form_for Question.new, { :remote => true, :class => 'question_bar'} do |f|
+  = f.text_field :question, {:placeholder => 'Enter your question' }
+

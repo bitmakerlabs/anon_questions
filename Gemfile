@@ -18,6 +18,8 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  gem 'less-rails'
+  gem 'therubyracer'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'haml-rails'
 
@@ -29,6 +31,8 @@ end
 
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem 'thin'
+gem 'foreman'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

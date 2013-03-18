@@ -3,16 +3,8 @@
 
 
   %table.table.table-striped
-    %tr{:'ng-repeat' => 'q in questions'}
-      %td 
-        {{q.votes}}
-        %a{:'ng-click' => 'upvote(q)'} upvote
-      %td {{q.question}}
-    -#- for question in @questions
-      -#= render :partial => 'question', :locals => { :question => question }
-
-  -#= form_for Question.new, { :remote => true, :class => 'question_bar'} do |f|
-    -#= f.text_field :question, {:placeholder => 'Enter your question' }
+    %tr{:'ng-repeat' => 'question in questions'}
+      = render :partial => 'questions/question'
 
   %form{:'ng-submit' => 'addQuestion(newQuestion)'}
     %input{:type => 'text', :'ng-model' => 'newQuestion.question'}

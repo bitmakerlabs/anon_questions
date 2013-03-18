@@ -16,13 +16,16 @@ class ShowQuestions
   new_question: (e, question=null)=>
     @$scope.questions.push question if question
 
+  reload: () =>
+    @Question.index()
+    setTimeout @reload, 10000
+
   constructor: (@$scope, @Question) ->
     @$scope.upvote = @upvote
     @$scope.addQuestion = @addQuestion
     @$scope.newQuestion = {}
-    @Question.index()
+    @reload()
     @$scope.$on 'questions', @reset
     @$scope.$on 'new_question', @new_question
-
 
 bitmaker.controller 'show_questions', ['$scope', 'Question', ShowQuestions]

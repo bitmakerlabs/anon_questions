@@ -1,6 +1,11 @@
 class QuestionsController < ApplicationController
   def index
     @questions = Question.order(:votes).reverse
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @questions }
+    end
   end
 
   def vote_up

@@ -1,3 +1,3 @@
 class Question < ActiveRecord::Base
-  attr_accessible :question, :votes
+  attr_accessible :question, :votes, :answered
 end

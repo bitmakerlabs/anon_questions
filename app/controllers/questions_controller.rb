@@ -3,8 +3,8 @@ class QuestionsController < ApplicationController
     @questions = Question.order(:votes).reverse
 
     respond_to do |format|
-      format.json { render :json => @questions }
       format.html
+      format.json { render :json => @questions }
     end
   end
 

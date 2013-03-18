@@ -1,10 +1,20 @@
-%h1 Current Questions
+#questions{'ng-controller' => 'show_questions'}
+  %h1 Current Questions
 
 
-%table.table.table-striped
-  - for question in @questions
-    = render :partial => 'question', :locals => { :question => question }
+  %table.table.table-striped
+    %tr{:'ng-repeat' => 'q in questions'}
+      %td 
+        {{q.votes}}
+        %a{:'ng-click' => 'upvote(q)'} upvote
+      %td {{q.question}}
+    -#- for question in @questions
+      -#= render :partial => 'question', :locals => { :question => question }
 
-= form_for Question.new, { :remote => true, :class => 'question_bar'} do |f|
-  = f.text_field :question, {:placeholder => 'Enter your question' }
+  -#= form_for Question.new, { :remote => true, :class => 'question_bar'} do |f|
+    -#= f.text_field :question, {:placeholder => 'Enter your question' }
+
+  %form{:'ng-submit' => 'addQuestion(newQuestion)'}
+    %input{:type => 'text', :'ng-model' => 'newQuestion.question'}
+    %input{:type => 'submit', :class => 'btn-primary btn', :value => 'ask question'}
 

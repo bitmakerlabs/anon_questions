@@ -31,6 +31,7 @@ end
 
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem 'angular-rails'
 gem 'thin'
 gem 'foreman'
 

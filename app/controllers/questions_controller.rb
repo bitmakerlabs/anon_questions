@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.order(:votes).reverse
+    @questions = Question.available
 
     respond_to do |format|
       format.html

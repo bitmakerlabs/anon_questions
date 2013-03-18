@@ -21,13 +21,14 @@ group :assets do
   gem 'less-rails'
   gem 'therubyracer'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'haml-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
+
+gem 'haml-rails'
 
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'

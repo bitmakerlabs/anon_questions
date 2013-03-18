@@ -16,5 +16,6 @@
 #= require twitter/bootstrap
 #
 #= require angular/init
-#= require_tree ./angular
+#= require_tree ./angular/services
+#= require_tree ./angular/controllers
 #= require_self

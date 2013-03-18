@@ -7,10 +7,15 @@ class Question
   create:(newQuestion)=>
     params = 
       question: newQuestion
-    req = @$http '/questions', params
+    req = @$http.post '/questions', params
 
     req.success (data) =>
-      @$rootScope.$broadcast 'add_questions', data
+      @$rootScope.$broadcast 'new_question', data
+
+  upvote:(question)=>
+    id = question.id
+    req = @$http.post '/questions/' + id + '/vote_up'
+
 
   index:()=>
     req = @$http
@@ -21,6 +26,7 @@ class Question
       @$rootScope.$broadcast 'questions', data
 
   constructor: (@$rootScope, @$http)->
+    @data = []
 
 
 bitmaker.service 'Question', ['$rootScope', '$http', Question]

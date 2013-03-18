@@ -6,7 +6,8 @@
     %tr{:'ng-repeat' => 'question in questions'}
       = render :partial => 'questions/question'
 
-  %form{:'ng-submit' => 'addQuestion(newQuestion)'}
-    %input{:type => 'text', :'ng-model' => 'newQuestion.question'}
-    %input{:type => 'submit', :class => 'btn-primary btn', :value => 'ask question'}
+  %form{:'ng-submit' => 'addQuestion(newQuestion)', :name => 'questionsForm'}
+    .input-append{'ng-class' => "{error: myForm.name.$invalid}"}
+      %input{:type => 'text', :'ng-model' => 'newQuestion.question', :required => ''}
+      %input{:type => 'submit', :class => 'btn-primary btn', :value => 'ask question'}
 

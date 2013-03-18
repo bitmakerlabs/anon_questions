@@ -3,6 +3,8 @@ AnonQuestions::Application.routes.draw do
     post 'vote_up'
   end
 
+  root :to => 'questions#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
